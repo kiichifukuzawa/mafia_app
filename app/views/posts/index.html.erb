@@ -1,20 +1,8 @@
-<header>
-  <div class="header-logo">
-    <a href="/">GOMAYAKUKI</a>
-  </div>
-  <ul class="header-menus">
-    <li>
-      <a href="/about">GOMAYAKUKIとは</a>
-    </li>
-  </ul>
-</header>
-
-
 <div class="main posts-index">
   <div class="container">
     <% @posts.each do |post| %>
      <div class="main posts-index-item">
-       <%= post %>
+       <%= post.content %>
      </div>
     <% end %>
   </div>
