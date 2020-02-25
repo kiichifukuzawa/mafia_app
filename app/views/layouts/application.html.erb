@@ -12,11 +12,14 @@
   <body>
     <header>
       <div class="header-logo">
-        <a href="/">GOMAYAKUKI</a>
+        <%= link_to("GOMAYAKUKI", "/") %>
       </div>
       <ul class="header-menus">
         <li>
-          <a href="/about">GOMAYAKUKIとは</a>
+          <%= link_to("GOMAYAKUKIとは", "/about") %>
+        </li>
+        <li>
+          <%= link_to("ガイド一覧", "/posts/index") %>
         </li>
       </ul>
     </header>
