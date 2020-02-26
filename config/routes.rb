@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # 投稿のルーティング
   get "posts/index" => "posts#index"
+  get "posts/new" => "posts#new"
   get "posts/:id" => "posts#show"
 
   # homeのルーティング
