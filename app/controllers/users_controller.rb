@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   #ユーザーの新規登録
   def new
-
+    @user = User.new
   end
 
   # createアクション
@@ -22,5 +22,29 @@ class UsersController < ApplicationController
       redirect_to("/users/#{@user.id}")
     else
       render("users/new")
+    end
   end
+
+  # ユーザー情報の編集
+  def edit
+    @user = User.find_by(id: params[:id])
+  end
+
+  # update アクション
+  def update
+    @user = User.find_by(id: params[:id])
+    @user.name = params[:name]
+    @user.email = params[:email]
+
+    if @user.save
+      flash[:notice] = "ユーザー情報を編集しました"
+      redirect_to("/users/#{@user.id}")
+    else
+      render("users/edit")
+    end
+  end
+
+
+
+
 end
