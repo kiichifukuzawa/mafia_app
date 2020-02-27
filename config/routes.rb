@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/index'
   # 投稿のルーティング
   get "posts/index" => "posts#index"
   get "posts/new" => "posts#new"
