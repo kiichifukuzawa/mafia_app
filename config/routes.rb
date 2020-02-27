@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post "posts/create" => "posts#create"
   # 投稿編集のルーティング
   get "posts/:id/edit" => "posts#edit"
+  # 編集した値を受け取る
+  post "posts/:id/update" => "posts#update"
 
   # homeのルーティング
   get "/" => "home#top"
