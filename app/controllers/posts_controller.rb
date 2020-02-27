@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+before_action :authenticate_user
+
+
   # 投稿一覧
   def index
     @posts = Post.all.order(created_at: :desc)

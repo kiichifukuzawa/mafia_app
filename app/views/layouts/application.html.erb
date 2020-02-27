@@ -15,9 +15,9 @@
         <%= link_to("GOMAYAKUKI", "/") %>
       </div>
       <ul class="header-menus">
-        <% if session[:user_id] %>
+        <% if @current_user %>
           <li>
-            ユーザーID:<%= session[:user_id] %>
+            <%= link_to("ユーザー:#{@current_user.name}", "/users/#{@current_user.id}") %>
           </li>
           <li>
             <%= link_to("ガイド一覧", "/posts/index") %>
