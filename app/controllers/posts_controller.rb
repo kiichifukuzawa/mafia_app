@@ -18,4 +18,9 @@ class PostsController < ApplicationController
     @post.save
     redirect_to("/posts/index")
   end
+
+  # 投稿編集画面のアクション
+  def edit
+
+  end
 end
