@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  # ログインのルーティング
+  get "login" => "users#login_form"
+  post "login" => "users#login"
+  post "logout" => "users#logout"
+
+
   # ユーザー一覧のルーティング
   post "users/:id/update" => "users#update"
   get "users/:id/edit" => "users#edit"
