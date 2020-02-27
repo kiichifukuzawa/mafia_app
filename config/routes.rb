@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get "posts/index" => "posts#index"
   get "posts/new" => "posts#new"
   get "posts/:id" => "posts#show"
+  # 投稿を送信するためのルーティング
+  post "posts/create" => "posts#create"
 
   # homeのルーティング
   get "/" => "home#top"
