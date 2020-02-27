@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get "posts/:id/edit" => "posts#edit"
   # 編集した値を受け取る
   post "posts/:id/update" => "posts#update"
+  # 削除機能へのルーティング
+  post "posts/:id/destroy" => "posts#destroy"
 
   # homeのルーティング
   get "/" => "home#top"

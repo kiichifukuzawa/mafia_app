@@ -34,4 +34,12 @@ class PostsController < ApplicationController
 
     redirect_to("/posts/index")
   end
+
+  #投稿の削除
+  def destroy
+    @post = Post.find_by(id: params[:id])
+    @post.destroy
+    redirect_to("/posts/index")
+  end
+
 end
