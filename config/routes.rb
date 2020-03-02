@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  # 言い値のルーティング
+  post "likes/:post_id/create" => "likes#create"
+  post "likes/:post_id/destroy" => "likes#destroy"
   # ログインのルーティング
   get "login" => "users#login_form"
   post "login" => "users#login"
   post "logout" => "users#logout"
-
-
   # ユーザー一覧のルーティング
   post "users/:id/update" => "users#update"
   get "users/:id/edit" => "users#edit"
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
   get "signup" => "users#new"
   get "users/index" => "users#index"
   get "users/:id" => "users#show"
-
   # 投稿のルーティング
   get "posts/index" => "posts#index"
   get "posts/new" => "posts#new"

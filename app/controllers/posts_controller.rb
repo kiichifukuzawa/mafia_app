@@ -12,6 +12,7 @@ before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
   def show
     @post = Post.find_by(id: params[:id])
     @user = @post.user
+    @likes_count = Like.where(post_id: @post.id).count
   end
 
 # 新規投稿画面のアクション
@@ -68,5 +69,5 @@ before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
     end
   end
 
-  
+
 end
