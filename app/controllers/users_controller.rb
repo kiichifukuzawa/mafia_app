@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 before_action :authenticate_user, {only: [:index, :show, :edit, :update]}
 before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
+before_action :ensure_correct_user, {only: [:edit, :update]}
 
   # ユーザー一覧のアクション
   def index
@@ -86,5 +87,14 @@ before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
     flash[:notice] = "ログアウトしました"
     redirect_to("/login")
   end
+
+  # 自分のアカウントだけを編集できるようにする
+  def ensure_correct_user
+    if @current_user.id != params[:id].to_i
+      flash[:notice] = "権限がありません"
+      redirect_to("/posts/index")
+    end
+  end
+
 
 end
