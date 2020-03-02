@@ -9,7 +9,8 @@ before_action :authenticate_user
 
   # 投稿詳細
   def show
-    @post = Post.find_by(id:params[:id])
+    @post = Post.find_by(id: params[:id])
+    @user = @post.user
   end
 
 # 新規投稿画面のアクション
@@ -19,7 +20,10 @@ before_action :authenticate_user
 
 # 新規投稿のアクション
   def create
-    @post = Post.new(content: params[:content])
+    @post = Post.new(
+      content: params[:content],
+      user_id: @current_user.id
+    )
     if @post.save
       flash[:notice] = "投稿を作成しました"
       redirect_to("/posts/index")
